@@ -111,7 +111,7 @@ This is a fork of rcloneExplorer by [Patryk Kaczmarkiewicz](https://github.com/k
 
 ---
 
-[//]: # "### Docker Hub : [baneeishaque/gitpod-rcx-dev](https://hub.docker.com/r/baneeishaque/gitpod-rcx-dev)"
+### Docker Hub : [baneeishaque/gitpod-rcx-dev](https://hub.docker.com/r/baneeishaque/gitpod-rcx-dev)
 
 ### Base Image : [baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver](https://hub.docker.com/repository/docker/baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver)
 
