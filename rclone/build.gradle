@@ -26,6 +26,7 @@ ext.ndkVersion = '22.1.7171670'
 //
 import java.io.ByteArrayOutputStream
 import java.nio.file.Paths
+import java.nio.file.Path
 import java.nio.file.Files
 import java.util.Properties
 
@@ -53,19 +54,19 @@ def configureNdk() {
     }
 
     // locate NDK
-    def androidNdkHome = System.getenv('ANDROID_NDK_HOME')
+    Path androidNdkHome = Paths.get(System.getenv('ANDROID_NDK_HOME'))
     def androidHome = System.getenv('ANDROID_HOME')
-    def ndkBasePath
+    Path ndkBasePath
     if (androidHome != null) {
-        def canonicalPath = Paths.get(androidHome, 'ndk', ext.ndkVersion)
-        def bundlePath = Paths.get(androidHome, 'ndk-bundle')
+        Path canonicalPath = Paths.get(androidHome, 'ndk', ext.ndkVersion)
+        Path bundlePath = Paths.get(androidHome, 'ndk-bundle')
         if (Files.exists(canonicalPath) && checkNdk(canonicalPath)) {
             ndkBasePath = canonicalPath;
         } else if (Files.exists(bundlePath) && checkNdk(bundlePath)) {
             ndkBasePath = bundlePath;
         }
     } else if (androidNdkHome != null && checkNdk(androidNdkHome)) {
-        ndkBasePath = Paths.get(androidNdkHome)
+        ndkBasePath = androidNdkHome
     }
 
     if (ndkBasePath == null) {
@@ -75,7 +76,9 @@ def configureNdk() {
     return ndkBasePath.resolve(Paths.get('toolchains', 'llvm', 'prebuilt', os, 'bin'))
 }
 
-def checkNdk(ndkBasePath) {
+def checkNdk(Path ndkBasePath) {
+    println "ndkBasePath : ${ndkBasePath}"
+    println "ndkBasePath type : ${ndkBasePath.getClass()}"
     def propertiesPath = ndkBasePath.resolve('source.properties')
     def ndkProperties = new Properties()
     ndkProperties.load(file(propertiesPath).newReader())
