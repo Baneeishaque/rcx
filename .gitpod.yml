@@ -1,0 +1,80 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 5900
+    onOpen: ignore
+  - name: VNC
+    description: full GUI Virtual Desktop
+    port: 6080
+    onOpen: open-browser
+  - name: phpMyAdmin
+    port: 80
+    onOpen: open-browser
+  - port: 6942
+    onOpen: ignore
+
+tasks:
+  - name: Insatll & Configure BashHub
+    command: |
+      eval $(gp env -e)
+      echo $BASH_HUB_ACCESS_TOKEN \
+        && echo $BASH_HUB_SYSTEM_NAME \
+        && bashHubConfigurationFolder=$HOME/.bashhub \
+        && bashHubConfigurationFile=config \
+        && mkdir $bashHubConfigurationFolder \
+        && bashHubConfigurationPath=$bashHubConfigurationFolder/$bashHubConfigurationFile \
+        && printf "[bashhub]\naccess_token = $(echo $BASH_HUB_ACCESS_TOKEN)\nsystem_name = $(echo $BASH_HUB_SYSTEM_NAME)" > $bashHubConfigurationPath \
+        && cat $bashHubConfigurationPath \
+        && cd /workspace \
+        && curl -OL https://bashhub.com/setup \
+        && sed -z 's+\n        if ! ../env/bin/bashhub util update_system_info; then\n            # Run setup if we run into any issues updating our system info\n            ../env/bin/bashhub setup\n        fi++' -i setup \
+        && bash setup \
+        && rm setup \
+        && exit
+
+  # - name: Run phpMyAdmin
+  #   command: cd /opt/phpMyAdmin-5.2.0-all-languages && sudo php -S 0.0.0.0:80
+
+  # - name: Run IntelliJ IDEA
+  #   command: cd /workspace && git clone --depth 1 "https://github.com/Baneeishaque/gitpod-workspace-full-vnc-1366x768-tint2-pcmanfm-zsh-android-studio-gh-chrome-intellij-idea.git" intellij-idea-config && rm -rf ~/.config/JetBrains/IntelliJIdea2022.2 && mkdir -p ~/.config/JetBrains && ln -s `pwd`/intellij-idea-config/IntelliJIdea2022.2-config ~/.config/JetBrains/IntelliJIdea2022.2 && rm -rf ~/.local/share/JetBrains/IntelliJIdea2022.2 && mkdir -p ~/.local/share/JetBrains && ln -s `pwd`/intellij-idea-config/IntelliJIdea2022.2-local ~/.local/share/JetBrains/IntelliJIdea2022.2 && rm -rf ~/.local/share/JetBrains/consentOptions && ln -s `pwd`/intellij-idea-config/consentOptions ~/.local/share/JetBrains/consentOptions && rm -rf ~/.local/share/JetBrains/bl && ln -s `pwd`/intellij-idea-config/bl ~/.local/share/JetBrains/bl && rm -rf ~/.local/share/JetBrains/crl && ln -s `pwd`/intellij-idea-config/crl ~/.local/share/JetBrains/crl && cd /usr/local/idea-IU-222.3739.54/bin/ && ./idea.sh
+
+  # - name: Open Google Chrome
+  #   command: git clone --depth 1 "https://gitlab.com/baneeishaque/gitpod-workspace-full-vnc-1366x768-tint2-pcmanfm-zsh-android-studio-gh-chrome-private.git" chrome-config && export CHROME_CONFIG_HOME=`pwd`/chrome-config && google-chrome
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: false
+    addComment: false
+    addBadge: true
+
+jetbrains:
+  intellij:
+    prebuilds:
+      version: both
+  goland:
+    prebuilds:
+      version: both
+  pycharm:
+    prebuilds:
+      version: both
+  phpstorm:
+    prebuilds:
+      version: both
+
+vscode:
+  extensions:
+    - vscode.markdown
+    - vscode.markdown-language-features
+    - vscode.github
+    - GitHub.vscode-pull-request-github
+    - vscode.merge-conflict
+    - vscode.references-view
+    - vscode.search-result
+    - vscode.docker
+    - redhat.vscode-yaml
+    - vscode.json
