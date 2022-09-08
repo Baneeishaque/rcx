@@ -4,3 +4,5 @@ ARG androidNdkVersion="22.1.7171670"
 RUN $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "ndk;${androidNdkVersion}"
 
 ENV ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/${androidNdkVersion}
+
+RUN echo "demo content to trigger rebuild due to the change in Dockerfile"
