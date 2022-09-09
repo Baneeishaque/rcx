@@ -68,16 +68,8 @@ This is a fork of rcloneExplorer by [Patryk Kaczmarkiewicz](https://github.com/k
 - [Toasty](https://github.com/GrenderG/Toasty) - The usual Toast, but with steroids.
 - Icons from [Flaticon](https://www.flaticon.com) courtesy of [Smashicons](https://www.flaticon.com/authors/smashicons) and [Freepik](https://www.flaticon.com/authors/freepik)
 
-[//]: # "![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/baneeishaque/gitpod-rcx-dev/latest)"
-[//]: # "![Docker Image Size (tag)](https://img.shields.io/docker/image-size/baneeishaque/gitpod-rcx-dev/latest)"
-[//]: # "![Docker Pulls](https://img.shields.io/docker/pulls/baneeishaque/gitpod-rcx-dev)"
-[//]: # "![Docker Stars](https://img.shields.io/docker/stars/baneeishaque/gitpod-rcx-dev)"
-
-<!-- <a href="https://gitpod.io/#https://github.com/Baneeishaque/rcx"><img src="https://icons-for-free.com/iconfiles/png/512/gitpod-1324440164066425542.png" alt="Gitpod IDE" width="100" height="100"></a> -->
-<!-- <a href="https://github1s.com/Baneeishaque/rcx"><img src="https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg" alt="Github1s Editor" width="100" height="100"></a> -->
-
-<!-- [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/Baneeishaque/rcx) -->
-
+Online IDEs
+-----------------
 <table>
   <tr>
     <td>
@@ -109,12 +101,10 @@ This is a fork of rcloneExplorer by [Patryk Kaczmarkiewicz](https://github.com/k
   </tr>
 </table>
 
----
-
-### Docker Hub : [baneeishaque/gitpod-rcx-dev](https://hub.docker.com/r/baneeishaque/gitpod-rcx-dev)
-
-### Base Image : [baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver](https://hub.docker.com/repository/docker/baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver)
-
-### Base Image Repo. : [ Baneeishaque/gitpod-full-vnc-bh-phpMyAdmin-1920x1080-idea-chrome-driver ](https://github.com/Baneeishaque/gitpod-full-vnc-bh-phpMyAdmin-1920x1080-idea-chrome-driver)
-
-[//]: # "[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Baneeishaque/rcx)"
+### Docker Image: [baneeishaque/gitpod-rcx-dev](https://hub.docker.com/r/baneeishaque/gitpod-rcx-dev)
+![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/baneeishaque/gitpod-rcx-dev/latest)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/baneeishaque/gitpod-rcx-dev/latest)
+![Docker Pulls](https://img.shields.io/docker/pulls/baneeishaque/gitpod-rcx-dev)
+![Docker Stars](https://img.shields.io/docker/stars/baneeishaque/gitpod-rcx-dev)  
+Base Image : [baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver](https://hub.docker.com/repository/docker/baneeishaque/gitpod-full-vnc-bh-phpmyadmin-1920x1080-idea-chrome-driver)  
+Base Image Repo. : [ Baneeishaque/gitpod-full-vnc-bh-phpMyAdmin-1920x1080-idea-chrome-driver ](https://github.com/Baneeishaque/gitpod-full-vnc-bh-phpMyAdmin-1920x1080-idea-chrome-driver)
